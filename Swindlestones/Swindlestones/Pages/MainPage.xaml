@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             BackgroundColor="Black"
              x:Class="Swindlestones.MainPage">
 
     <Grid
@@ -44,26 +45,40 @@
             IsVisible="False"
             Grid.Column="0"
             Grid.Row="4"/>
-        <Button
+        <ImageButton
             x:Name="uxRollButton"
             Clicked="UxRollButton_CLicked"
-            Text="Roll"
             Grid.Column="0"
+            Source="roll"
+            BackgroundColor="White"
             Grid.Row="5"
-            HeightRequest="50"
+            CornerRadius="40"
+            HeightRequest="80"
+            WidthRequest="80"
+            HorizontalOptions="Start"
+            VerticalOptions="End"
             Margin="0"/>
         <StackLayout
             Grid.Row="5"
             Grid.Column="1"
+            HorizontalOptions="EndAndExpand"
             Orientation="Horizontal"
             Spacing="0">
             <Button
                 x:Name="uxSubtractButton"
+                HeightRequest="80"
+                WidthRequest="80"
+                CornerRadius="40"
+                FontSize="40"
                 Clicked="UxSubtractButton_Clicked"
                 Text="-"
                 Margin="0"/>
             <Button
                 x:Name="uxAddButton"
+                HeightRequest="80"
+                WidthRequest="80"
+                CornerRadius="40"
+                FontSize="40"
                 Clicked="UxAddButton_Clicked"
                 Text="+"
                 Margin="0"/>
