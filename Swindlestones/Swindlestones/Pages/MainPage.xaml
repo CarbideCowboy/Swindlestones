@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Swindlestones.MainPage">
+
+    <Grid
+        x:Name="uxBoardGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image
+            x:Name="dice1Spot"
+            IsVisible="False"
+            Grid.Column="0"
+            Grid.Row="0"/>
+        <Image
+            x:Name="dice2Spot"
+            IsVisible="False"
+            Grid.Column="1"
+            Grid.Row="1"/>
+        <Image
+            x:Name="dice3Spot"
+            IsVisible="False"
+            Grid.Column="0"
+            Grid.Row="2"/>
+        <Image
+            x:Name="dice4Spot"
+            IsVisible="False"
+            Grid.Column="1"
+            Grid.Row="3"/>
+        <Image
+            x:Name="dice5Spot"
+            IsVisible="False"
+            Grid.Column="0"
+            Grid.Row="4"/>
+        <Button
+            x:Name="uxRollButton"
+            Clicked="UxRollButton_CLicked"
+            Text="Roll"
+            Grid.Column="0"
+            Grid.Row="5"
+            HeightRequest="50"
+            Margin="0"/>
+        <StackLayout
+            Grid.Row="5"
+            Grid.Column="1"
+            Orientation="Horizontal"
+            Spacing="0">
+            <Button
+                x:Name="uxSubtractButton"
+                Clicked="UxSubtractButton_Clicked"
+                Text="-"
+                Margin="0"/>
+            <Button
+                x:Name="uxAddButton"
+                Clicked="UxAddButton_Clicked"
+                Text="+"
+                Margin="0"/>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
