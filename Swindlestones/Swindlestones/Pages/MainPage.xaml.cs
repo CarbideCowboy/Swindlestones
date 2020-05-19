@@ -20,60 +20,76 @@ namespace Swindlestones
             InitializeComponent();
         }
 
-        public void UxRollButton_CLicked(object sender, EventArgs e)
+        public async void UxRollButton_CLicked(object sender, EventArgs e)
         {
-            RollDice();
+            await RollDice();
         }
 
-        public void RollDice()
+        public async Task RollDice()
         {
             switch(numberOfDice)
             {
                 case 1:
-                    RollDie(dice1Spot);
+                    await RollDie(dice1Spot);
                     break;
                 case 2:
-                    RollDie(dice1Spot);
-                    RollDie(dice2Spot);
+                    _ = RollDie(dice1Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice2Spot);
                     break;
                 case 3:
-                    RollDie(dice1Spot);
-                    RollDie(dice2Spot);
-                    RollDie(dice3Spot);
+                    _ = RollDie(dice1Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice2Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice3Spot);
                     break;
                 case 4:
-                    RollDie(dice1Spot);
-                    RollDie(dice2Spot);
-                    RollDie(dice3Spot);
-                    RollDie(dice4Spot);
+                    _ = RollDie(dice1Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice2Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice3Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice4Spot);
                     break;
                 case 5:
-                    RollDie(dice1Spot);
-                    RollDie(dice2Spot);
-                    RollDie(dice3Spot);
-                    RollDie(dice4Spot);
-                    RollDie(dice5Spot);
+                    _ = RollDie(dice1Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice2Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice3Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice4Spot);
+                    await Task.Delay(300);
+                    _ = RollDie(dice5Spot);
                     break;
             }
         }
 
-        public void RollDie(Image image)
+        public async Task RollDie(Image image)
         {
-            int roll = random.Next(1, 5);
-            switch(roll)
+            for (int i = 0; i < 6; i++)
             {
-                case 1:
-                    image.Source = "stone1.png";
-                    break;
-                case 2:
-                    image.Source = "stone2.png";
-                    break;
-                case 3:
-                    image.Source = "stone3.png";
-                    break;
-                case 4:
-                    image.Source = "stone4.png";
-                    break;
+                int roll = random.Next(1, 5);
+                int rotation = random.Next(1, 360);
+                switch (roll)
+                {
+                    case 1:
+                        image.Source = "stone1.png";
+                        break;
+                    case 2:
+                        image.Source = "stone2.png";
+                        break;
+                    case 3:
+                        image.Source = "stone3.png";
+                        break;
+                    case 4:
+                        image.Source = "stone4.png";
+                        break;
+                }
+                image.Rotation = rotation;
+                await Task.Delay(80);
             }
         }
 
