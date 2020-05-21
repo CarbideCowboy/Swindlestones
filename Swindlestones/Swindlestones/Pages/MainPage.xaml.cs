@@ -15,9 +15,24 @@ namespace Swindlestones
     {
         public int numberOfDice = 0;
         public Random random = new Random();
+        public int Mode = 0;
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        public void UxSwindleButton_Clicked(object sender, EventArgs e)
+        {
+            ClearDice();
+            numberOfDice = 0;
+            Mode = 0;
+        }
+
+        public void UxPirateButton_Clicked(object sender, EventArgs e)
+        {
+            ClearDice();
+            numberOfDice = 0;
+            Mode = 1;
         }
 
         public async void UxRollButton_CLicked(object sender, EventArgs e)
@@ -71,26 +86,73 @@ namespace Swindlestones
         {
             for (int i = 0; i < 6; i++)
             {
-                int roll = random.Next(1, 5);
                 int rotation = random.Next(1, 360);
-                switch (roll)
+                if(Mode == 0)
                 {
-                    case 1:
-                        image.Source = "stone1.png";
-                        break;
-                    case 2:
-                        image.Source = "stone2.png";
-                        break;
-                    case 3:
-                        image.Source = "stone3.png";
-                        break;
-                    case 4:
-                        image.Source = "stone4.png";
-                        break;
+                    int roll = random.Next(1, 5);
+                    switch (roll)
+                    {
+                        case 1:
+                            image.Source = "stone1.png";
+                            image.Scale = 1;
+                            break;
+                        case 2:
+                            image.Source = "stone2.png";
+                            image.Scale = 1;
+                            break;
+                        case 3:
+                            image.Source = "stone3.png";
+                            image.Scale = 1;
+                            break;
+                        case 4:
+                            image.Source = "stone4.png";
+                            image.Scale = 1;
+                            break;
+                    }
+                }
+                else if(Mode == 1)
+                {
+                    int roll = random.Next(1, 7);
+                    switch (roll)
+                    {
+                        case 1:
+                            image.Source = "dice1.png";
+                            image.Scale = .75;
+                            break;
+                        case 2:
+                            image.Source = "dice2.png";
+                            image.Scale = .75;
+                            break;
+                        case 3:
+                            image.Source = "dice3.png";
+                            image.Scale = .75;
+                            break;
+                        case 4:
+                            image.Source = "dice4.png";
+                            image.Scale = .75;
+                            break;
+                        case 5:
+                            image.Source = "dice5.png";
+                            image.Scale = .75;
+                            break;
+                        case 6:
+                            image.Source = "dice6.png";
+                            image.Scale = .75;
+                            break;
+                    }
                 }
                 image.Rotation = rotation;
                 await Task.Delay(80);
             }
+        }
+
+        private void ClearDice()
+        {
+            dice1Spot.IsVisible = false;
+            dice2Spot.IsVisible = false;
+            dice3Spot.IsVisible = false;
+            dice4Spot.IsVisible = false;
+            dice5Spot.IsVisible = false;
         }
 
         public void UxAddButton_Clicked(object sender, EventArgs e)
@@ -106,7 +168,7 @@ namespace Swindlestones
                         dice3Spot.IsVisible = false;
                         dice4Spot.IsVisible = false;
                         dice5Spot.IsVisible = false;
-                        RollDie(dice1Spot);
+                        _ = RollDie(dice1Spot);
                         break;
                     case 2:
                         dice1Spot.IsVisible = true;
@@ -114,7 +176,7 @@ namespace Swindlestones
                         dice3Spot.IsVisible = false;
                         dice4Spot.IsVisible = false;
                         dice5Spot.IsVisible = false;
-                        RollDie(dice2Spot);
+                        _ = RollDie(dice2Spot);
                         break;
                     case 3:
                         dice1Spot.IsVisible = true;
@@ -122,7 +184,7 @@ namespace Swindlestones
                         dice3Spot.IsVisible = true;
                         dice4Spot.IsVisible = false;
                         dice5Spot.IsVisible = false;
-                        RollDie(dice3Spot);
+                        _ = RollDie(dice3Spot);
                         break;
                     case 4:
                         dice1Spot.IsVisible = true;
@@ -130,7 +192,7 @@ namespace Swindlestones
                         dice3Spot.IsVisible = true;
                         dice4Spot.IsVisible = true;
                         dice5Spot.IsVisible = false;
-                        RollDie(dice4Spot);
+                        _ = RollDie(dice4Spot);
                         break;
                     case 5:
                         dice1Spot.IsVisible = true;
@@ -138,7 +200,7 @@ namespace Swindlestones
                         dice3Spot.IsVisible = true;
                         dice4Spot.IsVisible = true;
                         dice5Spot.IsVisible = true;
-                        RollDie(dice5Spot);
+                        _ = RollDie(dice5Spot);
                         break;
                 }
             }
