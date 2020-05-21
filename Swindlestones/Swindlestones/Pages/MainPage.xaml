@@ -11,8 +11,10 @@
         x:Name="uxBoardGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -20,38 +22,58 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Button
+            x:Name="uxSwindleButton"
+            Clicked="UxSwindleButton_Clicked"
+            Grid.Row="0"
+            Grid.Column="0"
+            TextColor="White"
+            BackgroundColor="Purple"
+            HorizontalOptions="FillAndExpand"
+            Margin="0,0,0,20"
+            Text="Swindlestones"/>
+        <Button
+            x:Name="uxPirateButton"
+            Clicked="UxPirateButton_Clicked"
+            BackgroundColor="Red"
+            TextColor="Black"
+            Grid.Row="0"
+            Grid.Column="1"
+            HorizontalOptions="FillAndExpand"
+            Margin="0,0,0,20"
+            Text="Pirates"/>
         <Image
             x:Name="dice1Spot"
             IsVisible="False"
             Grid.Column="0"
-            Grid.Row="0"/>
+            Grid.Row="1"/>
         <Image
             x:Name="dice2Spot"
             IsVisible="False"
             Grid.Column="1"
-            Grid.Row="1"/>
+            Grid.Row="2"/>
         <Image
             x:Name="dice3Spot"
             IsVisible="False"
             Grid.Column="0"
-            Grid.Row="2"/>
+            Grid.Row="3"/>
         <Image
             x:Name="dice4Spot"
             IsVisible="False"
             Grid.Column="1"
-            Grid.Row="3"/>
+            Grid.Row="4"/>
         <Image
             x:Name="dice5Spot"
             IsVisible="False"
             Grid.Column="0"
-            Grid.Row="4"/>
+            Grid.Row="5"/>
         <ImageButton
             x:Name="uxRollButton"
             Clicked="UxRollButton_CLicked"
             Grid.Column="0"
             Source="roll"
             BackgroundColor="White"
-            Grid.Row="5"
+            Grid.Row="6"
             CornerRadius="40"
             HeightRequest="80"
             WidthRequest="80"
@@ -59,7 +81,7 @@
             VerticalOptions="End"
             Margin="0"/>
         <StackLayout
-            Grid.Row="5"
+            Grid.Row="6"
             Grid.Column="1"
             HorizontalOptions="EndAndExpand"
             Orientation="Horizontal"
